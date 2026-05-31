@@ -1,0 +1,1 @@
+Python, Qwen Cloud, OpenAI-compatible Qwen API architecture, Alibaba Cloud, deterministic risk scoring, modular agent design, Markdown report generation, CSV/JSON data templates, Water–Energy–Food–Compute framework, Sentinel QC Water Node Simulator, regulatory-readiness reporting, civic impact brief generation, developer mitigation planning, GitHub, Devpost

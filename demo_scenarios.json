@@ -1,0 +1,13 @@
+[
+  {
+    "project_name": "Major Watershed AI Compute Campus",
+    "location": "Major river-adjacent industrial corridor",
+    "facility_mw": 400,
+    "cooling_type": "evaporative",
+    "season": "summer",
+    "infrastructure_redundancy": 31,
+    "modeled_water_use_gpd": 2000000,
+    "developer_claims": ["low water dependency", "minimal grid impact", "sustainable design", "permit-ready status"],
+    "missing_data": ["seasonal river-flow data", "thermal discharge assumptions", "water reuse strategy", "utility interconnection analysis", "community engagement process"]
+  }
+]

@@ -1,0 +1,4 @@
+segment_id,water_body_name,type,region,mean_flow_cfs,low_flow_cfs,baseline_temp_c,summer_temp_c,ecological_sensitivity_score,infrastructure_capacity_score
+DEMO001,Major Watershed Demo Segment,River,Demo Region,120000,85000,18,28,70,62
+OHIO001,Ohio River Demo Segment,River,Louisville Corridor,120000,85000,18,28,70,62
+RES001,Reservoir-Adjacent Compute Site,Reservoir,Demo Region,50000,30000,16,26,64,70
