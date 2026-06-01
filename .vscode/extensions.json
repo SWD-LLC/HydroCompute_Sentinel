@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
+    "mikestead.dotenv",
+    "bierner.markdown-mermaid"
+  ],
+  "unwantedRecommendations": [
+    "johannaglover73.qwen-code-vscode-ide-companion",
+    "qwenlm.qwen-code-vscode-ide-companion"
+  ]
+}
