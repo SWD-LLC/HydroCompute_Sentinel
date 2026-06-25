@@ -1,3 +1,51 @@
+# HydroCompute Intelligence Backend API
+
+HydroCompute Intelligence now includes a modular Node.js/Express backend API layer for monitoring high-capacity water environments, compute load, QC tracking devices, volatility points, risk conditions, and failsafe response layers. The API currently serves mock infrastructure intelligence data as JSON so the existing frontend can connect without being rebuilt, redesigned, replaced, deleted, or restyled.
+
+The repository's frontend assets, if present in a StackBlitz/Bolt workspace, are preserved. This backend only adds API routes and static serving compatibility for existing `dist`, `build`, or `public` output directories. Qwen or Zed IDE companion extensions should be used outside StackBlitz/Bolt; this workspace explicitly avoids recommending Qwen IDE companion extensions.
+
+## Backend Run Command
+
+```bash
+npm install
+npm start
+```
+
+The server defaults to `http://localhost:3000` unless `PORT` is set.
+
+## API Routes
+
+| Method | Route | Purpose |
+|---|---|---|
+| GET | `/` | API service overview and route list |
+| GET | `/api/health` | Health check for the backend service |
+| GET | `/api/system-status` | Overall HydroCompute system status |
+| GET | `/api/water-volatility` | Water environment telemetry and water-related volatility points |
+| GET | `/api/qc-tracking` | QC device status, telemetry quality, and inspection signals |
+| GET | `/api/compute-load` | Compute utilization, cooling demand, and power-risk signals |
+| GET | `/api/failsafe-plan` | Failsafe response layers and shutdown trigger data |
+| GET | `/api/risk-dashboard` | Aggregated risk counts, highest-priority risk, next actions, and sorted volatility points |
+| GET | `/api/volatility-points` | All normalized volatility/risk items sorted by risk score |
+
+## Endpoint Testing
+
+After starting the server, test the JSON endpoints with curl:
+
+```bash
+curl http://localhost:3000/api/health
+curl http://localhost:3000/api/system-status
+curl http://localhost:3000/api/water-volatility
+curl http://localhost:3000/api/qc-tracking
+curl http://localhost:3000/api/compute-load
+curl http://localhost:3000/api/failsafe-plan
+curl http://localhost:3000/api/risk-dashboard
+curl http://localhost:3000/api/volatility-points
+```
+
+Risk and volatility items include `id`, `subsystem`, `status`, normalized scoring inputs, `riskScore`, `priority`, `detectionSignal`, `mitigation`, and `escalationPath`. Risk scores use `likelihood * impact * (1 - detectability) * (1 - mitigationLeverage)`, with priorities assigned as critical, high, medium, or low.
+
+---
+
 # HydroCompute: Sentinel
 
 **Water–Energy–Food–Compute intelligence for sustainable AI infrastructure siting.**
