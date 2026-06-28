@@ -8,6 +8,7 @@ const qcTrackingRoutes = require('./routes/qcTracking');
 const computeRoutes = require('./routes/compute');
 const failsafeRoutes = require('./routes/failsafe');
 const riskRoutes = require('./routes/risk');
+const telemetryRoutes = require('./routes/telemetry');
 const requestLogger = require('./middleware/requestLogger');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandler');
 
@@ -31,13 +32,19 @@ if (process.env.ENABLE_CORS === 'true' || process.env.STACKBLITZ === 'true' || p
   });
 }
 
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/', (req, res) => {
   res.json({
     service: 'HydroCompute Intelligence API',
     status: 'operational',
     docs: '/api/health',
+    dashboard: '/dashboard',
     routes: [
       'GET /',
+      'GET /dashboard',
       'GET /api/health',
       'GET /api/system-status',
       'GET /api/water-volatility',
@@ -46,6 +53,7 @@ app.get('/', (req, res) => {
       'GET /api/failsafe-plan',
       'GET /api/risk-dashboard',
       'GET /api/volatility-points',
+      'GET /api/telemetry-analysis',
     ],
   });
 });
@@ -56,6 +64,7 @@ app.use('/api', qcTrackingRoutes);
 app.use('/api', computeRoutes);
 app.use('/api', failsafeRoutes);
 app.use('/api', riskRoutes);
+app.use('/api', telemetryRoutes);
 
 // Compatibility aliases for likely frontend/API service naming variants.
 app.use('/api/system', systemRoutes);
@@ -64,6 +73,7 @@ app.use('/api/qc', qcTrackingRoutes);
 app.use('/api/compute', computeRoutes);
 app.use('/api/failsafe', failsafeRoutes);
 app.use('/api/risk', riskRoutes);
+app.use('/api/telemetry', telemetryRoutes);
 
 const staticCandidates = ['dist', 'build', 'public'];
 for (const directory of staticCandidates) {
